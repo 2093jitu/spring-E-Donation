@@ -25,10 +25,7 @@
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-
-
 	<!--================Header Menu Area =================-->
 	<header class="header_area">
 		<div class="main_menu">
@@ -54,31 +51,35 @@
 									<li class="nav-item active"><a class="nav-link" href="/">home</a>
 									</li>
 									<li class="nav-item "><a class="nav-link" href="/loginorsinup">Create
-											Donation</a></li>
+											Donation</a>
+									</li>
 									<li class="nav-item "><a class="nav-link"
 										href="/donationcurd">Donate Now</a></li>
 									<li class="nav-item "><a class="nav-link" href="/bloodDonation">Blood Donation</a>
 									</li>
 									<li class="nav-item submenu dropdown"><a href="#"
 										class="nav-link dropdown-toggle" data-toggle="dropdown"
-										role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+										role="button" aria-haspopup="true" aria-expanded="false">Join Us</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item"><a class="nav-link"
 												href="/jointeam">Join Our Team</a></li>
 											<li class="nav-item"><a class="nav-link"
-												href="/teammember">Team Member</a></li>
-											<li class="nav-item"><a class="nav-link"
-												href="/loginorsinup">Elements</a></li>
-										</ul></li>
-									<li class="nav-item submenu dropdown"><a href="#"
+												href="/teammember">Team Member</a></li>											
+										</ul>
+									</li>
+									<li class="nav-item "><a class="nav-link" href="/contactUs">ContactUs
+											</a>
+									</li>
+									<!-- <li class="nav-item submenu dropdown"><a href="#"
 										class="nav-link dropdown-toggle" data-toggle="dropdown"
 										role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item"><a class="nav-link"
-												href="blog.html">Blog</a></li>
+												href="/contactUs">Contact Us</a></li>
 											<li class="nav-item"><a class="nav-link"
 												href="single-blog.html">Blog Details</a></li>
-										</ul></li>
+										</ul>
+									</li> -->
 									<li class="nav-item"><a class="main_btn"
 										href="/donationcurd">donate now</a></li>
 									<li class="nav-item"><a class="main_btn"

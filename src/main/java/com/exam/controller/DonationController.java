@@ -43,24 +43,14 @@ public class DonationController {
 
 	}
 
-	@GetMapping(value = "/causes")
-	public ModelAndView causes() {
+//	@GetMapping(value = "/causes")
+//	public ModelAndView causes() {
+//
+//		return new ModelAndView("/causes/causes");
+//
+//	}
 
-		return new ModelAndView("/causes/causes");
-
-	}
-
-	@PostMapping(value = "/createdonation")
-	public String create(Model m, @Valid @ModelAttribute("donation") Donation donation, BindingResult bindingResult) {
-		System.out.println(donation);
-		donationService.save(donation);
-		if (bindingResult.hasErrors()) {
-
-			return "/causes/causes";
-		}
-
-		return "/causes/causes";
-	}
+	
 
 	@RequestMapping("/donationcurd")
 	public String donationcurd(Map<String, Object> map) {
@@ -104,14 +94,25 @@ public class DonationController {
 
 	}
 
-	// login or regirdtration
+	// login or regirdtration page show
 
 	@RequestMapping("/loginorsinup")
 	public ModelAndView loginOrrege() {
 
 		return new ModelAndView("donatelist/loginorsinup");
 	}
+	
+	//for sine Up
 
+		@RequestMapping(value = "/createdonationsinup")
+		public ModelAndView sinupdcreatedonationpage(@ModelAttribute("donationRege") DonationRege donationRege) {
+			System.out.println(donationRege);
+			loninOrRegeDaoService.save(donationRege);
+			
+			return new ModelAndView("donatelist/loginorsinup");
+		}
+
+	//after login 
 	@RequestMapping(value = "/createdonationlogin")
 	public ModelAndView logindcreatedonationpage(@RequestParam("email") String email,
 			@RequestParam("password") String password, Map<String, Object> map) {
@@ -119,40 +120,54 @@ public class DonationController {
 		if (loninOrRegeDaoService.login(email, password).size() == 1) {
 			System.out.println(email + " : " + password);
 			map.put("donationList", donationService.getByEmail(email));
-			return new ModelAndView("donatelist/rearchResultDonation");
+			map.put("email", email);
+			return new ModelAndView("donatelist/rearchResultDonation" ,map);
 			
 		} else {
 
 			return new ModelAndView("donatelist/loginorsinup");
 
 		}
-
 		
 	}
 	
 	@RequestMapping("/searchredirect")
-	public String searchredirect () {
+	public ModelAndView redirectpage() {		
 		
-		return "/donatelist/rearchResultDonation";
+		return new ModelAndView("/donatelist/rearchResultDonation");
 	}
+	
+	//create new Donation
+	
+	@PostMapping(value = "/createdonation")
+	public ModelAndView create(Model m, @Valid @ModelAttribute("donation") Donation donation ,Map<String, Object> map) {
+		System.out.println(donation);
+		donationService.save(donation);
+		map.put("email",donation.getEmail());
+		map.put("donationList", donationService.getByEmail(donation.getEmail()));		
 
-	@RequestMapping(value = "/createdonationsinup")
-	public ModelAndView sinupdcreatedonationpage(@ModelAttribute("donationRege") DonationRege donationRege) {
-		System.out.println(donationRege);
-		loninOrRegeDaoService.save(donationRege);
-		return new ModelAndView("donatelist/loginorsinup");
+		return new ModelAndView("/donatelist/rearchResultDonation",map);
 	}
 	
 	
-	@RequestMapping(value = "/deletedonationbyuser/{id}")
-	public ModelAndView donationDeleteByUser(@PathVariable("id") int id) {
-		Map<String, Object> map = new HashMap<>();
-		List<Donation> donationList = donationService.getAll();
-		map.put("donationList", donationList);
-
+	@RequestMapping(value = "/deletedonationbyuser/{id}/{email}")
+	public ModelAndView donationDeleteByUser(@PathVariable("id") int id ,@PathVariable String email,Map<String, Object> map) {
 		donationService.delete(id);
-		return new ModelAndView("redirect:/searchredirect", map);
+		
+		map.put("email",email);
+		map.put("donationList", donationService.getByEmail(email));	
+		
+		return new ModelAndView("redirect:/searchredirect");
 
+	}
+	
+	
+	
+	//searchresult
+	@RequestMapping("/createresult")
+	public ModelAndView createresult() {		
+		
+		return new ModelAndView("/donatelist/createresult");
 	}
 
 }

@@ -53,7 +53,7 @@
 									<P style="color: green;">ACCEPTED BY ADMIN</P>
 								</c:if></td>
 							<td><c:if test="${! donationlist.status}">
-									<td><a href="/deletedonationbyuser/${donationlist.id}"
+									<td><a href="/deletedonationbyuser/${donationlist.id}/${donationlist.email}"
 										class="btn btn-danger">Cancel</a></td>
 								</c:if></td>
 						</tr>
@@ -104,7 +104,7 @@
 						<div class="form-group">
 							<label for="email">Email</label> <input type="email"
 								class="form-control" id="email" placeholder="Enter Your Email"
-								name="email" />
+								name="email" value="${email}"/>
 						</div>
 
 						<div class="form-group">

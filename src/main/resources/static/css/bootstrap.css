@@ -67,6 +67,11 @@ nav,
 section {
     display: block
 }
+.img-fluid {
+    max-width: 100%;
+    height: 71%;
+    padding: 43px 0px 0px 0px;
+}
 
 body {
     margin: 0;

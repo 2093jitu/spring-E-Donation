@@ -118,6 +118,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- <script src="/vendors/counter-up/jquery.waypoints.min.js"></script> -->
 	<!-- <script src="/vendors/flipclock/timer.js"></script> -->
 	<!-- <script src="/vendors/counter-up/jquery.counterup.js"></script> -->
+	<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7nx22ZmINYk9TGiXDEXGVxghC43Ox6qA"></script>
 	<script src="/js/mail-script.js"></script>
 	<script src="/js/custom.js"></script>
 	<script src="/js/angular.min.js"></script>

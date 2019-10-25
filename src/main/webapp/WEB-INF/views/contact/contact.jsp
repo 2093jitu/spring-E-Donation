@@ -1,5 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<!--================Header Menu Area =================-->
 <jsp:include page="../header.jsp"></jsp:include>
 <!--================ Banner Area =================-->
 <section class="banner_area">
@@ -7,88 +10,113 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="banner_content text-center">
-				<h2>Join Us</h2>
+				<h2>Contact Us</h2>
 				<div class="page_link">
-					<a href="/">Home</a> <a href="/user/create">JOIN US</a>
+					<a href="index.html">Home</a> <a href="contact.html">Contact</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <!--================End Banner Area =================-->
-<div class="container" style="margin-top: 50px">
-	<div class="row">
-		<div class="col-lg-3">
-			<img class="img-fluid" src="/img/donation/d6.jpg" alt="" style="width: 100%;height: 900px">
-		</div>
 
-		<div class="col-lg-9" style="border: 2px solid;">
-			<div class="row">
-				<div class="col-lg-12">
-					<h3 style="text-align: center; margin-top: 23px;">
-						<b>GOIN OUR DONATION GROUP</b>
-					</h3>
+<!--================Contact Area =================-->
+<section class="contact_area p_120">
+	<div class="container">
+		<div id="mapBox" class="mapBox"></div>
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="contact_info">
+					<div class="info_item">
+						<i class="lnr lnr-home"></i>
+						<h6>California, United States</h6>
+						<p>Santa monica bullevard</p>
+					</div>
+					<div class="info_item">
+						<i class="lnr lnr-phone-handset"></i>
+						<h6>
+							<a href="#">00 (440) 9865 562</a>
+						</h6>
+						<p>Mon to Fri 9am to 6 pm</p>
+					</div>
+					<div class="info_item">
+						<i class="lnr lnr-envelope"></i>
+						<h6>
+							<a href="#">support@colorlib.com</a>
+						</h6>
+						<p>Send us your query anytime!</p>
+					</div>
 				</div>
 			</div>
+			<div class="col-lg-9">
+				<form class="row contact_form" action="massageSend"
+					method="post" id="contactForm" novalidate="novalidate">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" class="form-control" id="name" name="name"
+								placeholder="Enter your name">
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" id="email" name="email"
+								placeholder="Enter email address">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="subject"
+								name="subject" placeholder="Enter Subject">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<textarea class="form-control" name="message" id="message"
+								rows="1" placeholder="Enter Message"></textarea>
+						</div>
+					</div>
+					<div class="col-md-12 text-right">
+						<button type="submit" value="submit" class="btn submit_btn">Send
+							Message</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================Contact Area =================-->
 
-			<div class="row" style="margin-top: 15px">
-				<div class="col-lg-12" style="background-color: #848484">
-					<form ng-app="myApp" ng-controller="myCtrl">
-						<div class="form-group">
-							<label for="fullName"><b>Full Name</b></label> <input type="text"
-								class="form-control" id="fullName" placeholder="Enter Full Name"
-								ng-model="user.fullName" />
-						</div>
-						<div class="form-group">
-							<label for="phNumber"><b>Phon Number</b></label> <input
-								type="text" class="form-control" id="phNumber"
-								placeholder="Enter Phon Number" ng-model="user.phon" />
-						</div>
+<!--================ Start Footer Area  =================-->
+<jsp:include page="../footer.jsp"></jsp:include>
+<!--================ End Footer Area  =================-->
 
-						<div class="form-group">
-							<label for="email"><b>Email</b></label> <input type="text"
-								class="form-control" id="email" placeholder="Enter Email"
-								ng-model="user.email" />
-						</div>
-
-						<div class="form-group">
-							<label for="address"><b>Address</b></label>
-							<textarea calss="form-control" id="address" style="width: 100%"
-								ng-model="user.address"></textarea>
-						</div>
-
-						<div class="form-group">
-							<label for="gender"><b>Gender</b></label> <input type="text"
-								class="form-control" id="gender" placeholder="Enter Gender"
-								ng-model="user.gender" />
-						</div>
-
-						<div class="form-group">
-							<label for="occupation"><b>Occupation</b></label> <input
-								type="text" class="form-control" id="occupation"
-								placeholder="Enter Occupation" ng-model="user.occupation" />
-						</div>
-						<div class="form-group">
-							<label for="nationlity"><b>Nationlity</b></label><input
-								type="text" class="form-control" id="nationlity"
-								placeholder="Enter Nationlity" ng-model="user.nationlity" />
-						</div>
-						<div class="form-group">
-							<label for="qus"><b>Why Are You Interested</b></label>
-							<textarea calss="form-control" id="qus" style="width: 100%"
-								ng-model="user.qus">
-							</textarea>
-						</div>
-
-						<button type="submit" class="btn btn-primary"
-							ng-click="createUser()">Submit</button>
-					</form>
-				</div>
+<!--================Contact Success and Error message Area =================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<i class="fa fa-close"></i>
+				</button>
+				<h2>Thank you</h2>
+				<p>Your message is successfully sent...</p>
 			</div>
 		</div>
 	</div>
 </div>
-<div style="margin-bottom: 15px"></div>
-<!--================Contact Area =================-->
 
-<jsp:include page="../footer.jsp"></jsp:include>
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<i class="fa fa-close"></i>
+				</button>
+				<h2>Sorry !</h2>
+				<p>Something went wrong</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--================End Contact Success and Error message Area =================-->
+

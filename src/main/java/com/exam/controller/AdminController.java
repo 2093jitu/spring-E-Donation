@@ -21,4 +21,12 @@ public class AdminController {
 		return new ModelAndView	("/index");
 	}
 	
+	@RequestMapping(value = "/adminHome")
+	public ModelAndView adminHome() {
+		
+			
+			return new ModelAndView	("/admin");
+		
+	}
+	
 }
