@@ -157,7 +157,7 @@ public class DonationController {
 		map.put("email",email);
 		map.put("donationList", donationService.getByEmail(email));	
 		
-		return new ModelAndView("redirect:/searchredirect");
+		return new ModelAndView("/donatelist/rearchResultDonation");
 
 	}
 	
