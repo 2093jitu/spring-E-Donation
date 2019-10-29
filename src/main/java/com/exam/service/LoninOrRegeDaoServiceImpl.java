@@ -28,4 +28,10 @@ public class LoninOrRegeDaoServiceImpl implements LoninOrRegeDaoService {
 		return loninOrRegeDao.login(email, password);
 	}
 
+	@Override
+	public boolean isEmailAlreadyInUse(String email, String entity) {
+		
+		return loninOrRegeDao.isEmailAlreadyInUse(email, entity);
+	}
+
 }

@@ -8,4 +8,5 @@ public interface LoninOrRegeDaoService {
 
 	public DonationRege save(DonationRege entity);
 	public List<DonationRege> login(String email, String password);
+	public boolean isEmailAlreadyInUse(String email, String entity);
 }

@@ -26,7 +26,8 @@
 	<div class="col-md-12">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<form class="form-inline my-2 my-lg-0" action="/createdonationlogin" style="margin-left: 700px">
+				<form class="form-inline my-2 my-lg-0" action="/createdonationlogin"
+					style="margin-left: 700px">
 					<input class="form-control mr-sm-2" type="text"
 						placeholder="Enter Email" aria-label="Search" name="email">
 					<input class="form-control mr-sm-2" type="password"
@@ -50,7 +51,8 @@
 					<b>Sin Up For Create A Donation</b>
 				</h2>
 			</div>
-			<form action="/createdonationsinup" method="post" style="margin-top: 30px">
+			<form action="/createdonationsinup" method="post"
+				style="margin-top: 30px">
 				<div class="row">
 					<div class="col-md-6">
 						<label for="name">Fast Name</label> <input type="text"
@@ -67,10 +69,18 @@
 				<div class="row">
 					<div class="col-md-12">
 						<label for="contactNumber">Email</label> <input type="text"
-							class="form-control" placeholder="Enter Email"
-							id="contactNumber" name="email">
+							class="form-control" placeholder="Enter Email" id="contactNumber"
+							name="email">
 					</div>
 				</div>
+				<c:if test="${massage}">
+					<div class="row">
+					<div class="col-md-12">
+						<h1 style="color: red;">Email Is AllRaddy Use</h1>
+					</div>						
+					</div>
+				</c:if>
+
 				<div class="row">
 					<div class="col-md-12">
 						<label for="password">Password</label> <input type="password"
@@ -90,8 +100,8 @@
 					<input class="form-check-input" type="radio" name="gender"
 						id="exampleRadios1" value="male" checked> <label
 						class="form-check-label" for="exampleRadios1"> Male</label>
-				</div>				 
-				<div class="form-check">				
+				</div>
+				<div class="form-check">
 					<input class="form-check-input" type="radio" name="gender"
 						id="gender" value="female"> <label
 						class="form-check-label" for="exampleRadios2"> FeMale </label>
@@ -115,7 +125,7 @@
 </div>
 
 
-<div style="margin-bottom:  100px"></div>
+<div style="margin-bottom: 100px"></div>
 
 
 <!--================ End Recent Event Area =================-->

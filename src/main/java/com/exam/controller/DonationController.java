@@ -105,10 +105,25 @@ public class DonationController {
 	//for sine Up
 
 		@RequestMapping(value = "/createdonationsinup")
-		public ModelAndView sinupdcreatedonationpage(@ModelAttribute("donationRege") DonationRege donationRege) {
-			System.out.println(donationRege);
-			loninOrRegeDaoService.save(donationRege);
+		public ModelAndView sinupdcreatedonationpage(@ModelAttribute("donationRege") DonationRege donationRege ,Map<String,Boolean> map) {
+			System.out.println(donationRege);			
+			boolean reg =loninOrRegeDaoService.isEmailAlreadyInUse(donationRege.getEmail() , "DonationRege");
 			
+			boolean massage = false;
+			
+			if(reg != true) {
+				
+				loninOrRegeDaoService.save(donationRege);
+				
+				
+			}else {         
+				
+				massage =true;
+				map.put("massage", massage);
+				System.out.println(massage);
+				return new ModelAndView("donatelist/loginorsinup",map);				
+			}                       
+					
 			return new ModelAndView("donatelist/loginorsinup");
 		}
 
