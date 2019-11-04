@@ -53,7 +53,8 @@
 									<P style="color: green;">ACCEPTED BY ADMIN</P>
 								</c:if></td>
 							<td><c:if test="${! donationlist.status}">
-									<td><a href="/deletedonationbyuser/${donationlist.id}/${donationlist.email}"
+									<td><a
+										href="/deletedonationbyuser/${donationlist.id}/${donationlist.email}"
 										class="btn btn-danger">Cancel</a></td>
 								</c:if></td>
 						</tr>
@@ -94,7 +95,20 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="post" action="/createdonation">
+
+					<form method="post" action="/createdonation"
+						enctype="multipart/form-data">
+						
+						<div class="form-group">
+							<label for="pic">Picture</label> <input type="file" id="pic"
+								class="form-control" name="imageFile">
+						</div>
+						
+						<div class="form-group">
+							<label for="pic2">Documentation</label> <input type="file" id="pic2"
+								class="form-control" name="imageFile2">
+						</div>
+						
 						<div class="form-group">
 							<label for="fname">Full Name</label> <input type="text"
 								class="form-control" id="fname" placeholder="Enter First Name"
@@ -104,7 +118,7 @@
 						<div class="form-group">
 							<label for="email">Email</label> <input type="email"
 								class="form-control" id="email" placeholder="Enter Your Email"
-								name="email" value="${email}"/>
+								name="email" value="${email}" />
 						</div>
 
 						<div class="form-group">
@@ -137,8 +151,8 @@
 								placeholder="Enter Need Ammount" name="needammount" />
 						</div>
 						<div class="form-group col-md-12">
-							<label for="bankname">''</label> <select
-								name="bankname" class="form-control">
+							<label for="bankname">''</label> <select name="bankname"
+								class="form-control">
 								<option selected>#### Select Bank Name ###</option>
 								<option>IFIC BANK</option>
 								<option>UCB BANK</option>
@@ -164,12 +178,12 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+						data-dismiss="modal">Close</button>					
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 <!--================ End Recent Event Area =================-->
 <jsp:include page="../footer.jsp"></jsp:include>

@@ -47,4 +47,18 @@ public class LoninOrRegeDaoImpl implements LoninOrRegeDao {
 
 	}
 
+	@Override
+	public List<DonationRege> allDonationUser() {
+
+		return sessionFactory.getCurrentSession().createQuery("FROM DonationRege").list();
+	}
+
+	@Override
+	public void deleteUser(int id) {
+
+		sessionFactory.getCurrentSession().createQuery("Delete from  DonationRege dg Where dg.id='" + id + "'")
+				.executeUpdate();
+
+	}
+
 }

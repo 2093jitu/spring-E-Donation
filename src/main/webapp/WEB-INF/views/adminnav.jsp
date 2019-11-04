@@ -28,7 +28,9 @@
 							<li class="nav-item"><a class="navbar-brand"
 								href="/teammemberadmin">Team-Member</a></li>
 								<li class="nav-item"><a class="navbar-brand"
-								href="/contactAdmin">Massage</a></li>
+								href="/contactAdmin">Massage</a></li>								
+								<li class="nav-item"><a class="navbar-brand"
+								href="/donationUser">Donation User</a></li>								
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 								role="button" data-toggle="dropdown" aria-haspopup="true"

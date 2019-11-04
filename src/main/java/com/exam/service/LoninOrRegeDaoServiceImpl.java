@@ -34,4 +34,17 @@ public class LoninOrRegeDaoServiceImpl implements LoninOrRegeDaoService {
 		return loninOrRegeDao.isEmailAlreadyInUse(email, entity);
 	}
 
+	@Override
+	public List<DonationRege> allDonationUser() {
+		
+		return loninOrRegeDao.allDonationUser();
+		
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		
+		loninOrRegeDao.deleteUser(id);
+	}
+
 }

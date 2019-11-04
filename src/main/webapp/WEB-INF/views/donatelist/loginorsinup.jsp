@@ -2,14 +2,15 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp"></jsp:include>
+
 <section class="banner_area">
 	<div class="banner_inner d-flex align-items-center">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="banner_content text-center">
-				<h2>Recent Events</h2>
+				<h2>Make Donation</h2>
 				<div class="page_link">
-					<a href="/">Home</a> <a href="contact.html">Events</a>
+					<a href="index.html">Home</a> <a href="donation.html">Donation</a>
 				</div>
 			</div>
 		</div>
@@ -75,9 +76,9 @@
 				</div>
 				<c:if test="${massage}">
 					<div class="row">
-					<div class="col-md-12">
-						<h1 style="color: red;">Email Is AllRaddy Use</h1>
-					</div>						
+						<div class="col-md-12">
+							<h1 style="color: red;">Email Is AllRaddy Use</h1>
+						</div>
 					</div>
 				</c:if>
 
@@ -91,8 +92,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<label for="dob">Date Of Birth</label> <input type="date"
-							class="form-control" placeholder="Date Of Birth" name="dob"
-							id="dob">
+							class="form-control" placeholder="Date Of Birth" name="date"
+							id="date">
 					</div>
 				</div>
 				<label for="gender">Gender</label>

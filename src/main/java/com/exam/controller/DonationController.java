@@ -1,5 +1,9 @@
 package com.exam.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,16 +15,17 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
+
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.exam.model.Donation;
@@ -39,16 +44,23 @@ public class DonationController {
 	@InitBinder
 	public void dataInitBinder(WebDataBinder binder) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(Date.class, "createdate", new CustomDateEditor(format, false));
+		
+		binder.registerCustomEditor(Date.class, "date", new CustomDateEditor(format, false));
 
 	}
+	
+	
+	@InitBinder
+	public void date(WebDataBinder binder) {
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");		
+		 
+		 binder.registerCustomEditor(Date.class, "createdate", new CustomDateEditor(format, false));	  
+				 
+	
+	}
 
-//	@GetMapping(value = "/causes")
-//	public ModelAndView causes() {
-//
-//		return new ModelAndView("/causes/causes");
-//
-//	}
+
 
 	
 
@@ -152,12 +164,73 @@ public class DonationController {
 		return new ModelAndView("/donatelist/rearchResultDonation");
 	}
 	
-	//create new Donation
 	
+	//create new Donation	
 	@PostMapping(value = "/createdonation")
-	public ModelAndView create(Model m, @Valid @ModelAttribute("donation") Donation donation ,Map<String, Object> map) {
-		System.out.println(donation);
-		donationService.save(donation);
+	public ModelAndView create( @Valid @ModelAttribute("donation") Donation donation ,@RequestParam("imageFile")  MultipartFile[] files ,@RequestParam("imageFile2")  MultipartFile[] files2,Map<String, Object> map) {
+		
+		//start	
+		
+		System.out.println(files.length);
+		System.out.println(files2.length);
+		
+		String uploadDir = "E:\\26-10-2019\\project\\Spring-eDonation\\src\\main\\resources\\static\\img\\teammemberpic";
+		String uploadDir2 = "E:\\26-10-2019\\project\\Spring-eDonation\\src\\main\\resources\\static\\img\\teammemberpic";
+		// ---------------------------------------------------
+		StringBuilder fileNames = new StringBuilder();
+		StringBuilder fileNames2 = new StringBuilder();
+		
+		Path fileNameAndPath = null;
+		Path fileNameAndPath2 = null;
+		
+		try {
+			for (MultipartFile file : files) {
+				fileNameAndPath = Paths.get(uploadDir, file.getOriginalFilename());
+				fileNames.append(file.getOriginalFilename());
+				
+				Files.write(fileNameAndPath, file.getBytes());
+			}
+		} catch (IOException e) {
+			
+		}
+		
+		try {
+			for (MultipartFile file : files2) {
+				fileNameAndPath2 = Paths.get(uploadDir2, file.getOriginalFilename());
+				fileNames2.append(file.getOriginalFilename());
+				
+				Files.write(fileNameAndPath2, file.getBytes());
+			}
+		} catch (IOException e) {
+			
+		}
+
+		System.out.println("File name path -------------" + fileNames);
+		System.out.println("File name path -------------" + fileNames2);
+		
+		
+		Donation don = new Donation();
+		don.setImg(fileNames.toString());
+		don.setFullName(donation.getFullName());
+		don.setAccountno(donation.getAccountno());
+		don.setAddress(donation.getAddress());
+		don.setBankname(donation.getBankname());
+		don.setbKashAcc(donation.getbKashAcc());
+		don.setContact(donation.getContact());
+		don.setCreatedate(donation.getCreatedate());
+		don.setDescription(donation.getDescription());
+		don.setEmail(donation.getEmail());
+		don.setNeedammount(donation.getNeedammount());
+		don.setDocument(fileNames2.toString());
+		
+		
+		
+		
+		//end
+		
+		
+		
+		donationService.save(don);
 		map.put("email",donation.getEmail());
 		map.put("donationList", donationService.getByEmail(donation.getEmail()));		
 
@@ -184,5 +257,25 @@ public class DonationController {
 		
 		return new ModelAndView("/donatelist/createresult");
 	}
+	
+	//Donation User Show Admin
+	@RequestMapping(value = "/donationUser")
+	public ModelAndView showDonationUserAdmin(Map<String, Object> map) {
+		
+		map.put("allUser", loninOrRegeDaoService.allDonationUser());
+		
+		return new ModelAndView("/donatelist/donationuser",map);
+	}
+	
+	
+	//delete user
+	@RequestMapping(value = "/deleteUser/{id}")
+	public ModelAndView deleteUser(@PathVariable("id") int id) {
+		
+		loninOrRegeDaoService.deleteUser(id);
+		
+		return new ModelAndView("redirect:/donationUser");
+	}
+	
 
 }

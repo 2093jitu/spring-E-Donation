@@ -44,7 +44,7 @@ public class TeamController {
 	@RequestMapping("/fileUploadAir.htm")
 	public String upload(Model model, @RequestParam("imageFile") MultipartFile[] files) {
 		System.out.println(files.length);
-		String uploadDir = "J:\\project\\21-10-2019\\project\\Spring-eDonation\\src\\main\\resources\\static\\img\\teammemberpic";
+		String uploadDir = "E:\\26-10-2019\\project\\Spring-eDonation\\src\\main\\resources\\static\\img\\teammemberpic";
 		// ---------------------------------------------------
 		StringBuilder fileNames = new StringBuilder();
 		Path fileNameAndPath = null;
@@ -88,7 +88,7 @@ public class TeamController {
 	@RequestMapping("/teammember")
 	public ModelAndView showTiemMember(Map<String, Object> map) {
 		map.put("teammamber", teamMemberService.getAll());
-		System.out.println(teamMemberService.getAll().get(0));
+		System.out.println(teamMemberService.getAll());
 		return new ModelAndView("/team/teammember", map);
 	}
 
@@ -101,7 +101,6 @@ public class TeamController {
 	}
 
 	// add team member
-
 	@RequestMapping("/addteammember/{Team_Member}/{id}")
 	public ModelAndView requestAccept(@PathVariable("Team_Member") String Team_Member, @PathVariable("id") int id) {
 		System.out.println(Team_Member + " : " + id);

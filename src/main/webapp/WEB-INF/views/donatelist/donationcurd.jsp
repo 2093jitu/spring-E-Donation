@@ -89,7 +89,7 @@
 								</div>
 								<div class="card_inner_body">
 									<div class="card-body-top">
-										<span>Raised: $7,689</span> / $10,000
+										<span>Raised: Tk.7,689</span> / <b>Tk.${donationlist.needammount}</b>
 									</div>
 									<h4 class="card-title"><b>Full Name : </b>${donationlist.fullName}</h4>
 									<p class="card-text"><b style="color: black;">Problem  Description :  </b>${donationlist.description}</p>

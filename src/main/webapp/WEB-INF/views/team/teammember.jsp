@@ -96,7 +96,7 @@
 				<div class="row">
 				<div class="col-lg-5">
 					<div class="about_img">
-						<img class="img-fluid" src="img/about-us.jpg" alt="" style="box-shadow: 0px 13px 35px #c9c9c91f;">
+						<img class="img-fluid" src="../img/teammemberpic/${mamber.profilepic}" alt="" style="box-shadow: 0px 13px 35px #c9c9c91f;">
 					</div>
 				</div>
 

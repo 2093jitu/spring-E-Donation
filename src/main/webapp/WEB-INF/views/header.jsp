@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="/css/responsive.css">
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
 	<!--================Header Menu Area =================-->
@@ -32,7 +33,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"> <img
+					<a class="navbar-brand logo_h" href="/"> <img
 						src="img/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,9 +48,7 @@
 						id="navbarSupportedContent">
 						<div class="row ml-0 w-100">
 							<div class="col-lg-12 pr-0">
-								<ul class="nav navbar-nav center_nav pull-right">
-									<li class="nav-item active"><a class="nav-link" href="/">home</a>
-									</li>
+								<ul class="nav navbar-nav center_nav pull-right">									
 									<li class="nav-item "><a class="nav-link" href="/loginorsinup">Create
 											Donation</a>
 									</li>
