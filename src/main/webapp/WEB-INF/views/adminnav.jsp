@@ -36,7 +36,7 @@
 								role="button" data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false"> Dropdown </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="#">Action</a> <a
+									<a class="dropdown-item" href="/bloodreport">Action</a> <a
 										class="dropdown-item" href="/">Front End</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/logout">Log Out</a>
