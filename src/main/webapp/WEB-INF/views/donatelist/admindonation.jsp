@@ -2,9 +2,25 @@
 	pageEncoding="ISO-8859-1"%>
 <jsp:include page="../adminnav.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div style="margin-top: 100px"></div>
 <div class="container">
-	<div style="margin-top: 100px"></div>
 	<div class="row">
+		<div class="col-md-10">
+			<form class="form-inline my-2 my-lg-0" action="/donationbyname"
+				method="post">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Enter Full name" aria-label="Search" name="fullName">
+				<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Show
+					Report</button>
+			</form>
+		</div>
+		<div class="col-md-2">
+			<a href="/alldonationreport"
+				class="btn btn-outline-success my-2 my-sm-0">Show All Report</a>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 10px">
 		<div class="col-md-12">
 			<table class="table table-bordered">
 				<tr>

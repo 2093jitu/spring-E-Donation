@@ -1,13 +1,19 @@
 package com.exam.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +31,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.exam.jasperreports.SimpleReportExporter;
+import com.exam.jasperreports.SimpleReportFiller;
 import com.exam.model.TeamMember;
 import com.exam.service.TeamMemberService;
-import com.fasterxml.jackson.annotation.JacksonInject.Value;
+
 
 @Controller
 public class TeamController {
 
 	@Autowired
 	TeamMemberService teamMemberService;
+	
+
+	@Autowired
+	SimpleReportFiller simpleReportFiller;
+
+	
+	@Autowired
+	private ServletContext servletContext;
+
 
 	@RequestMapping(value = "/jointeam")
 	public String jointeam() {
@@ -113,5 +130,43 @@ public class TeamController {
 		System.out.println("Team_Member Id" + " : ==" + id);
 		teamMemberService.delete(id);
 		return new ModelAndView("redirect:/teammemberadmin");
+	}
+	
+	//report
+	
+	@PostMapping("/teammemberbyname")
+	public String showbloodReportparamitter(HttpServletResponse response ,HttpServletRequest req) {
+		
+		String fullName=req.getParameter("fullName");
+		System.out.println("value =============" +fullName);
+		response.setContentType("application/pdf");
+		try {
+			SimpleReportExporter simpleExporter = new SimpleReportExporter();
+
+			simpleReportFiller.setReportFileName("teammemberbyname.jrxml");
+			simpleReportFiller.compileReport();
+
+			Map<String, Object> parameters = new HashMap<>();
+			parameters.put("fullName", fullName);
+			
+			simpleReportFiller.setParameters(parameters);
+			simpleReportFiller.fillReport();
+			simpleExporter.setJasperPrint(simpleReportFiller.getJasperPrint());
+
+			simpleExporter.exportToPdf("teammemberbyname.pdf", "olonsoft");
+
+			File file = new File("src/main/resources/reports/teammemberbyname.pdf");
+			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
+			response.setHeader("Content-Length", String.valueOf(file.length()));
+			response.setHeader("Content-Disposition", "inline; filename=\"teammemberbyname.pdf\"");
+			Files.copy(file.toPath(), response.getOutputStream());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

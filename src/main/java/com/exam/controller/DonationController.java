@@ -1,5 +1,7 @@
 package com.exam.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +34,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.exam.commerz.SSLCommerz;
 import com.exam.commerz.Utility.ParameterBuilder;
+import com.exam.jasperreports.SimpleReportExporter;
+import com.exam.jasperreports.SimpleReportFiller;
 import com.exam.model.Donation;
 import com.exam.model.DonationRege;
 import com.exam.service.DonationService;
@@ -42,6 +48,12 @@ public class DonationController {
 
 	@Autowired
 	LoninOrRegeDaoService loninOrRegeDaoService;
+
+	@Autowired
+	SimpleReportFiller simpleReportFiller;
+
+	@Autowired
+	private ServletContext servletContext;
 
 	@InitBinder
 	public void dataInitBinder(WebDataBinder binder) {
@@ -300,8 +312,8 @@ public class DonationController {
 		String Card_Name = req.getParameter("Card_Name");
 
 		String expiryDate = req.getParameter("expiryDate");
-		
-		Map<String, String> postData= ParameterBuilder.constructRequestParameters();		
+
+		Map<String, String> postData = ParameterBuilder.constructRequestParameters();
 		try {
 			SSLCommerz sslCommerz = new SSLCommerz("idbbi5db1cc5bae8cc", "idbbi5db1cc5bae8cc@ssl", true);
 			String result = sslCommerz.initiateTransaction(postData, true);
@@ -309,17 +321,86 @@ public class DonationController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		
+		}
 
 		return new ModelAndView("");
 	}
-	
+
 	@GetMapping(value = "/ssl-success-page")
 	public ModelAndView successUrl() {
 		System.out.println("::::::::::::::::::::::::::::::::ok:::::::::::::::::::::::::::::::::::::::::::");
-		
+
 		return new ModelAndView("/donatelist/success");
+	}
+
+	// report start
+	@GetMapping("/alldonationreport")
+	public String pdf(HttpServletResponse response) {
+		response.setContentType("application/pdf");
+		try {
+			SimpleReportExporter simpleExporter = new SimpleReportExporter();
+
+			simpleReportFiller.setReportFileName("donationall.jrxml");
+			simpleReportFiller.compileReport();
+
+			Map<String, Object> parameters = new HashMap<>();
+
+			simpleReportFiller.setParameters(parameters);
+			simpleReportFiller.fillReport();
+			simpleExporter.setJasperPrint(simpleReportFiller.getJasperPrint());
+
+			simpleExporter.exportToPdf("donationall.pdf", "olonsoft");
+
+			File file = new File("src/main/resources/reports/donationall.pdf");
+			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
+			response.setHeader("Content-Length", String.valueOf(file.length()));
+			response.setHeader("Content-Disposition", "inline; filename=\"donationall.pdf\"");
+			Files.copy(file.toPath(), response.getOutputStream());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// paramiter
+	@PostMapping("/donationbyname")
+	public String showbloodReportparamitter(HttpServletResponse response, HttpServletRequest req) {
+
+		String name = req.getParameter("fullName");
+		System.out.println("value =============" + name);
+		response.setContentType("application/pdf");
+		try {
+			SimpleReportExporter simpleExporter = new SimpleReportExporter();
+
+			simpleReportFiller.setReportFileName("donationByName.jrxml");
+			simpleReportFiller.compileReport();
+
+			Map<String, Object> parameters = new HashMap<>();
+			parameters.put("fullName", name);
+
+			simpleReportFiller.setParameters(parameters);
+			simpleReportFiller.fillReport();
+			simpleExporter.setJasperPrint(simpleReportFiller.getJasperPrint());
+
+			simpleExporter.exportToPdf("donationByName.pdf", "olonsoft");
+
+			File file = new File("src/main/resources/reports/donationByName.pdf");
+			response.setHeader("Content-Type", servletContext.getMimeType(file.getName()));
+			response.setHeader("Content-Length", String.valueOf(file.length()));
+			response.setHeader("Content-Disposition", "inline; filename=\"donationByName.pdf\"");
+			Files.copy(file.toPath(), response.getOutputStream());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
