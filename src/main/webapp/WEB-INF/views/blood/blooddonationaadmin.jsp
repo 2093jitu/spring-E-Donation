@@ -5,8 +5,23 @@
 <div style="margin-top: 100px"></div>
 <div class="container">
 	<div class="row">
+		<div class="col-md-10">
+			<form class="form-inline my-2 my-lg-0" action="/bloodreport1"
+				method="post">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Enter Blood Group" aria-label="Search"
+					name="bloodGroup">
+				<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Show
+					Report</button>
+			</form>
+		</div>
+		<div class="col-md-2">
+			<a href="/pdf" class="btn btn-outline-success my-2 my-sm-0">Show
+				All Report</a>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-12">
-
 			<table class="table table-bordered" style="margin-top: 15px">
 				<tr>
 					<th>Full Name</th>
@@ -32,11 +47,11 @@
 								<a href="/bloodstatuschange/${blood.id}/Avableable"
 									class="btn btn-success">Avableable</a>
 							</c:if></td>
-						<td><c:if test="${(blood.status=='NotAvableable')  || (blood.status=='All Raddy Booked')}">
+						<td><c:if
+								test="${(blood.status=='NotAvableable')  || (blood.status=='All Raddy Booked')}">
 								<a href="/deleteBloodDonation/${blood.id}"
 									class="btn btn-danger">Delete</a>
-							</c:if>							
-						</td>
+							</c:if></td>
 					</tr>
 
 

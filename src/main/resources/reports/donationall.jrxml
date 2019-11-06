@@ -42,7 +42,7 @@ FROM
 		<band height="102" splitType="Stretch">
 			<image>
 				<reportElement x="725" y="0" width="77" height="102" uuid="a5fbdcec-460b-4013-960a-5653ccad33b0"/>
-				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["src/main/resources/reports/cherry.jpg"]]></imageExpression>
 			</image>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="6e77dfa9-a9d8-469b-aa44-ee2cabe1924c"/>

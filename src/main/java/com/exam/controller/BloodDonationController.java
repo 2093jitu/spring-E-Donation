@@ -176,7 +176,7 @@ public class BloodDonationController {
 		}
 		
 		
-		@PostMapping("/bloodreport")
+		@PostMapping("/bloodreport1")
 		public String showbloodReportparamitter(HttpServletResponse response ,HttpServletRequest req) {
 			
 			String param=req.getParameter("bloodGroup");

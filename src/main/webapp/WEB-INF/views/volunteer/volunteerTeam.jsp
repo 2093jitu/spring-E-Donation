@@ -3,10 +3,7 @@
 <jsp:include page="../adminnav.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div style="margin-top: 100px"></div>
-
-<div class="container">
-	<div class="row" style="margin-bottom: 10px">
-		<div class="col-md-12">
+<!-- <div class="col-md-12">
 			<div class="col-md-6">
 				<form class="form-inline my-2 my-lg-0" action="/bloodreport"
 					method="post">
@@ -23,9 +20,27 @@
 				<a href="allVolenter" class="btn btn-primary">All Volunteer
 					Report</a>
 			</div>
+		</div> -->
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<form class="form-inline my-2 my-lg-0" action="/bloodreport1"
+				method="post">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Enter Volunteer Name" aria-label="Search"
+					name="bloodGroup">
+				<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Show
+					Report</button>
+			</form>
+		</div>
+		<div class="col-md-2">
+			<a href="allVolenter" class="btn btn-outline-success my-2 my-sm-0">Show
+				All Volunteer</a>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="margin-top: 10px">
 		<div class="col-md-12">
 			<div class="p-3 mb-2 bg-success text-white"
 				style="text-align: center;">
