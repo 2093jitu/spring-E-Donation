@@ -58,6 +58,10 @@
 					<th><h2>bKash Number :</h2></th>
 					<td><h2>${donationdetails.bKashAcc}</h2></td>
 				</tr>
+				<tr>
+					<th></th>
+					<td><a class="btn btn-success" href="/paymentPage">Donate Now</a></td>
+				</tr>
 			</table>
 
 		</div>

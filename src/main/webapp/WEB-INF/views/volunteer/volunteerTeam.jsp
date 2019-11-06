@@ -5,9 +5,34 @@
 <div style="margin-top: 100px"></div>
 
 <div class="container">
+	<div class="row" style="margin-bottom: 10px">
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<form class="form-inline my-2 my-lg-0" action="/bloodreport"
+					method="post">
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Enter Blood Group" aria-label="Search"
+						name="bloodGroup">
+					<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Show
+						Report</button>
+
+				</form>
+
+			</div>
+			<div class="col-md-4">
+				<a href="allVolenter" class="btn btn-primary">All Volunteer
+					Report</a>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12">
-		<div class="p-3 mb-2 bg-success text-white" style="text-align: center;"><h2><b>Add Volunteer</b></h2></div>
+			<div class="p-3 mb-2 bg-success text-white"
+				style="text-align: center;">
+				<h2>
+					<b>Add Volunteer</b>
+				</h2>
+			</div>
 			<form action="/saveVolunteer" method="post">
 				<div class="row">
 					<div class="col">
@@ -85,8 +110,7 @@
 	<form class="form-inline my-2 my-lg-0" action="/search" method="post">
 		<input class="form-control mr-sm-2" type="search" placeholder="Search"
 			aria-label="Search" name="search">
-		<button type="submit" 
-			class="btn btn-outline-success my-2 my-sm-0">Search</button>
+		<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
 
 	</form>
 
