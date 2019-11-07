@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--================Header Menu Area =================-->
 <jsp:include page="../header.jsp"></jsp:include>
 <!--================ Banner Area =================-->
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 			<div class="col-lg-9">
-				<form class="row contact_form" action="massageSend"
+				<form class="row contact_form" action="<c:url value='massageSend'/>"
 					method="post" id="contactForm" novalidate="novalidate">
 					<div class="col-md-6">
 						<div class="form-group">

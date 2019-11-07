@@ -34,7 +34,7 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<form method="post" action="/blooddonation">
+				<form method="post" action="<c:url value='/blooddonation'/>">
 					<div class="form-group">
 						<label for="fname">Full Name</label> <input type="text"
 							class="form-control" id="fname" placeholder="Enter First Name"
@@ -138,7 +138,7 @@
 							
 							<td>
 							<c:if test="${blood.status=='Avableable'}">
-									<a href="/sendemailform/${blood.email}" class="btn btn-link">Send Email</a>
+									<a href="<c:url value='/sendemailform/${blood.email}'/>" class="btn btn-link">Send Email</a>
 							</c:if>
 							</td>
 						</tr>

@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp"></jsp:include>
-
 <section class="banner_area">
 	<div class="banner_inner d-flex align-items-center">
 		<div class="overlay"></div>
@@ -22,12 +21,11 @@
 <!--================ Start Recent Event Area =================-->
 
 <div style="margin-top: 50px"></div>
-
 <div class="row">
 	<div class="col-md-12">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<form class="form-inline my-2 my-lg-0" action="/createdonationlogin"
+				<form class="form-inline my-2 my-lg-0" action="<c:url value='/createdonationlogin'/>"
 					style="margin-left: 700px">
 					<input class="form-control mr-sm-2" type="text"
 						placeholder="Enter Email" aria-label="Search" name="email">
@@ -52,7 +50,7 @@
 					<b>Sin Up For Create A Donation</b>
 				</h2>
 			</div>
-			<form action="/createdonationsinup" method="post"
+			<form action="<c:url value='/createdonationsinup'/>" method="post"
 				style="margin-top: 30px">
 				<div class="row">
 					<div class="col-md-6">
@@ -119,8 +117,6 @@
 					</div>
 				</div>
 			</form>
-
-
 		</div>
 	</div>
 </div>

@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp"></jsp:include>
-
 <section class="banner_area">
 	<div class="banner_inner d-flex align-items-center">
 		<div class="overlay"></div>
@@ -33,7 +32,7 @@
 					<b>*** Payment Here ***</b>
 				</h2>
 			</div>
-			<form action="paymentsubmit" class="form-group">
+			<form action="<c:url value='/paymentsubmit'/>" class="form-group">
 				<label for="cust_name">Customer Name</label><input type="text"
 					name="cus_name" class="form-control" id="cust_name" /> <label
 					for="cust_mobile">Mobile Number</label> <input type="number"
@@ -52,7 +51,8 @@
 					<option value="bdt">BDT</option>
 					<option value="usd">USD</option>
 				</select> <br /> <br /> <label for="amount">Total Amount</label> <input
-					type="number" name="total_amount" class="form-control" id="amount" /> <br />
+					type="number" name="total_amount" class="form-control" id="amount" />
+				<br />
 				<h3>For Payment Through Card</h3>
 				<label for="Card_Number">Card Number</label> <input type="number"
 					name="Card_Number" class="form-control" id="Card_Number" /> <label
@@ -60,7 +60,8 @@
 					name="Card_Name" class="form-control" id="Card_Name" /> <label
 					for="expiryDate">Expiry Date</label> <input type="date"
 					name="expiryDate" class="form-control" id="expiryDate" /><br />
-				<button type="submit" value="Pay" class="btn btn-block btn-primary">Pay Now</button>
+				<button type="submit" value="Pay" class="btn btn-block btn-primary">Pay
+					Now</button>
 			</form>
 		</div>
 		<div class="col-md-2"></div>

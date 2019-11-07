@@ -6,21 +6,18 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-
 			<div class="col-md-2"></div>
-			
 			<div class="col-md-6">
-
-				<form class="form-inline my-2 my-lg-0" action="/bloodreport"
-					method="post">
+				<form class="form-inline my-2 my-lg-0"
+					action="<c:url value='/bloodreport'/>" method="post">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Enter Blood Group" aria-label="Search" name="bloodGroup">
-					<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Show Report</button>
-
+						placeholder="Enter Blood Group" aria-label="Search"
+						name="bloodGroup">
+					<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Show
+						Report</button>
 				</form>
-
 			</div>
-			
+
 			<div class="col-md-2"></div>
 
 		</div>

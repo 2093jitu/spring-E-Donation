@@ -26,7 +26,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<form class="form-inline my-2 my-lg-0" action="/bloodreport1"
+			<form class="form-inline my-2 my-lg-0" action="<c:url value='/bloodreport1'/>"
 				method="post">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Enter Volunteer Name" aria-label="Search"
@@ -48,7 +48,7 @@
 					<b>Add Volunteer</b>
 				</h2>
 			</div>
-			<form action="/saveVolunteer" method="post">
+			<form action="<c:url value='/saveVolunteer'/>" method="post">
 				<div class="row">
 					<div class="col">
 						<label for="name">Full Name</label> <input type="text"
@@ -122,7 +122,7 @@
 	</div>
 	<div style="margin-top: 100px"></div>
 
-	<form class="form-inline my-2 my-lg-0" action="/search" method="post">
+	<form class="form-inline my-2 my-lg-0" action="<c:url value='/search'/>" method="post">
 		<input class="form-control mr-sm-2" type="search" placeholder="Search"
 			aria-label="Search" name="search">
 		<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
@@ -156,7 +156,7 @@
 						<td>${allVolunteer.occupation}</td>
 						<td>${allVolunteer.address}</td>
 						<td>${allVolunteer.dob}</td>
-						<td><a href="/edit/${allVolunteer.id}"
+						<td><a href="<c:url value='/edit/${allVolunteer.id}'/>"
 							class="btn btn-warning">Edit<i class="fa fa-trash"></i></a> <a
 							href="#" class="btn btn-danger"
 							onclick="javascript:deleteVolunteer(${allVolunteer.id})">Delete<i

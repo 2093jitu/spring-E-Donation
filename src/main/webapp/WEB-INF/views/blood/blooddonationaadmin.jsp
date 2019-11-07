@@ -6,8 +6,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<form class="form-inline my-2 my-lg-0" action="/bloodreport1"
-				method="post">
+			<form class="form-inline my-2 my-lg-0"
+				action="<c:url value='/bloodreport1'/>" method="post">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Enter Blood Group" aria-label="Search"
 					name="bloodGroup">
@@ -16,8 +16,8 @@
 			</form>
 		</div>
 		<div class="col-md-2">
-			<a href="/pdf" class="btn btn-outline-success my-2 my-sm-0">Show
-				All Report</a>
+			<a href="<c:url value='/pdf'/>"
+				class="btn btn-outline-success my-2 my-sm-0">Show All Report</a>
 		</div>
 	</div>
 	<div class="row">
@@ -41,15 +41,17 @@
 						<td>${blood.bloodGroup}</td>
 						<td>${blood.status}</td>
 						<td><c:if test="${blood.status == 'Avableable'}">
-								<a href="/bloodstatuschange/${blood.id}/NotAvableable"
+								<a
+									href="<c:url value='/bloodstatuschange/${blood.id}/NotAvableable'/>"
 									class="btn btn-danger">NotAvableable</a>
 							</c:if> <c:if test="${blood.status == 'NotAvableable'}">
-								<a href="/bloodstatuschange/${blood.id}/Avableable"
+								<a
+									href="<c:url value='/bloodstatuschange/${blood.id}/Avableable'/>"
 									class="btn btn-success">Avableable</a>
 							</c:if></td>
 						<td><c:if
 								test="${(blood.status=='NotAvableable')  || (blood.status=='All Raddy Booked')}">
-								<a href="/deleteBloodDonation/${blood.id}"
+								<a href="<c:url value='/deleteBloodDonation/${blood.id}'/>"
 									class="btn btn-danger">Delete</a>
 							</c:if></td>
 					</tr>

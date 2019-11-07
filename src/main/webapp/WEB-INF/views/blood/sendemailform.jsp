@@ -31,7 +31,7 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<form action="/sendEmail" method="post" style="margin-top: 50px">
+			<form action="<c:url value='/sendEmail'/>" method="post" style="margin-top: 50px">
 				<div class="row">
 					<div class="col-md-12">
 						<label for="email">Email :</label> <input type="text"

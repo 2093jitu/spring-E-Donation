@@ -38,7 +38,7 @@
 							<td>${allVolunteer.occupation}</td>
 							<td>${allVolunteer.address}</td>
 							<td>${allVolunteer.dob}</td>
-							<td><a href="/edit/${allVolunteer.id}"
+							<td><a href="<c:url value='/edit/${allVolunteer.id}'/>"
 								class="btn btn-warning">Edit<i class="fa fa-trash"></i></a> <a
 								href="#" class="btn btn-danger"
 								onclick="javascript:deleteVolunteer(${allVolunteer.id})">Delete<i
@@ -52,7 +52,7 @@
 				<div class="row">
 				<div class="col-md-2"></div>
 					<div class="col-md-10">
-						<img src="../img/teammemberpic/noresultfaound.png" />
+						<img src="<c:url value='img/teammemberpic/noresultfaound.png'/>" />
 					</div>
 				</div>
 			</c:if>

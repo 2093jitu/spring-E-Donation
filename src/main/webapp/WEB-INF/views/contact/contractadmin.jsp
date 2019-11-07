@@ -21,7 +21,7 @@
 						<td>${massage.email}</td>
 						<td>${massage.subject}</td>
 						<td>${massage.message}</td>
-						<td><a href="/replymessage/${massage.email}" class="btn btn-link">Reply Message</a></td>
+						<td><a href="<c:url value='/replymessage/${massage.email}'/>" class="btn btn-link">Reply Message</a></td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -9,7 +9,7 @@
 			<div class="banner_content text-center">
 				<h2>Recent Events</h2>
 				<div class="page_link">
-					<a href="/">Home</a> <a href="contact.html">Events</a>
+					<a href="<c:url value='/'/>">Home</a> <a href="contact.html">Events</a>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 			</h2>
 		</div>
 		<div class="col-md-12" style="margin-top: 100px">
-			<form action="fileUploadAir.htm" method="POST"
+			<form action="<c:url value='fileUploadAir.htm'/>" method="POST"
 				enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="pic">Picture</label> <input type="file" id="pic"
@@ -42,7 +42,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<form action="/join" method="post">
+			<form action="<c:url value='/join'/>" method="post">
 				<div class="row">
 					<div class="col-md-6">
 						<label for="name">Full Name</label> <input type="text"
@@ -124,10 +124,6 @@
 		</div>
 	</div>
 </div>
-
-
 <div style="margin-bottom: 100px"></div>
-
-
 <!--================ End Recent Event Area =================-->
 <jsp:include page="../footer.jsp"></jsp:include>

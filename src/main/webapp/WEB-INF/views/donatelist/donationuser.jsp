@@ -26,7 +26,7 @@
 						<td>${user.gender}</td>
 						<td>${user.date}</td>												
 						<td>
-							<a href="/deleteUser/${user.id}" class="btn btn-danger">Remove</a>
+							<a href="<c:url value='/deleteUser/${user.id}'/>" class="btn btn-danger">Remove</a>
 						</td>
 					</tr>
 				</c:forEach>

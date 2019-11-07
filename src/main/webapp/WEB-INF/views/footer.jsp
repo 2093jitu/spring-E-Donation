@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--================ Start Footer Area  =================-->
 	<footer class="footer-area section_gap">
 		<div class="container">
@@ -17,7 +18,7 @@
 						<h6 class="footer_title">Newsletter</h6>
 						<p>Stay updated with our latest trends</p>
 						<div id="mc_embed_signup">
-							<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+							<form target="_blank" action="<c:url value='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01'/>"
 							 method="get" class="subscribe_form relative">
 								<div class="input-group d-flex flex-row">
 									<input name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '"
@@ -77,7 +78,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             <div class="modal-body">
                 <div class="login px-4 py-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Login Now</h5>
-                    <form action="/adminlogin" method="post">
+                    <form action="<c:url value='/adminlogin'/>" method="post">
                         <div class="form-group">
                             <p class="mb-2">Email address</p>
                             <input type="email" class="form-control" id="exampleInputEmail1"
@@ -106,25 +107,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/popper.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script src="<c:url value='/js/jquery-3.2.1.min.js'/>"></script>
+	<script src="<c:url value='/js/popper.js'/>"></script>
+	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
 	<!-- <script src="/vendors/lightbox/simpleLightbox.min.js"></script> -->
-	<script src="/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="<c:url value='/vendors/nice-select/js/jquery.nice-select.min.js'/>"></script>
 	<!-- <script src="/vendors/isotope/imagesloaded.pkgd.min.js"></script> -->
-	<script src="/vendors/isotope/isotope-min.js"></script>
-	<script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="/js/jquery.ajaxchimp.min.js"></script>
+	<script src="<c:url value='/vendors/isotope/isotope-min.js'/>"></script>
+	<script src="<c:url value='/vendors/owl-carousel/owl.carousel.min.js'/>"></script>
+	<script src="<c:url value='/js/jquery.ajaxchimp.min.js'/>"></script>
 	<!-- <script src="/vendors/counter-up/jquery.waypoints.min.js"></script> -->
 	<!-- <script src="/vendors/flipclock/timer.js"></script> -->
 	<!-- <script src="/vendors/counter-up/jquery.counterup.js"></script> -->
 	<script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7nx22ZmINYk9TGiXDEXGVxghC43Ox6qA"></script>
-	<script src="/js/mail-script.js"></script>
-	<script src="/js/custom.js"></script>
-	<script src="/js/angular.min.js"></script>
-	<script src="/js/app/app.js"></script>
-	<script src="/js/controller/controller.js"></script>
+	<script src="<c:url value='/js/mail-script.js'/>"></script>
+	<script src="<c:url value='/js/custom.js'/>"></script>
+	<script src="<c:url value='/js/angular.min.js'/>"></script>
+	<script src="<c:url value='/js/app/app.js'/>"></script>
+	<script src="<c:url value='/js/controller/controller.js'/>"></script>
 </body>
 
 </html>

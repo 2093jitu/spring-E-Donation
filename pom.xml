@@ -10,6 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.exam</groupId>
+	<packaging>war</packaging>
 	<artifactId>SpringBootLoginRESTAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringBootLoginRESTAPI</name>
@@ -41,8 +42,7 @@
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>			
+			<artifactId>mysql-connector-java</artifactId>		
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

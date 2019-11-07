@@ -9,7 +9,7 @@
 			<div class="banner_content text-center">
 				<h2>Recent Events</h2>
 				<div class="page_link">
-					<a href="/">Home</a> <a href="contact.html">Events</a>
+					<a href="<c:url value='/'/>">Home</a> <a href="contact.html">Events</a>
 				</div>
 			</div>
 		</div>
@@ -44,8 +44,8 @@
 						<td>${donationlist.description}</td>
 						<td>${donationlist.needammount}</td>
 						<td>${donationlist.bKashAcc}</td>						
-						<td><img  src="../img/donation/${donationlist.img}" alt="" style="width: 100%;"></td>
-						<td><a href="/details/${donationlist.id}/" class="btn btn-danger">Show Details</a></a></td>
+						<td><img  src="<c:url value='img/donation/${donationlist.img}'/>" alt="" style="width: 100%;"></td>
+						<td><a href="<c:url value='/details/${donationlist.id}'/>" class="btn btn-danger">Show Details</a></a></td>
 					</tr>
 					<tr>
 						<td></td>

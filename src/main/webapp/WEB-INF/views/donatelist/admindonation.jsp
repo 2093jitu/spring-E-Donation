@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<form class="form-inline my-2 my-lg-0" action="/donationbyname"
+			<form class="form-inline my-2 my-lg-0" action="<c:url value='/donationbyname'/>"
 				method="post">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Enter Full name" aria-label="Search" name="fullName">
@@ -15,7 +15,7 @@
 			</form>
 		</div>
 		<div class="col-md-2">
-			<a href="/alldonationreport"
+			<a href="<c:url value='/alldonationreport'/>"
 				class="btn btn-outline-success my-2 my-sm-0">Show All Report</a>
 		</div>
 	</div>
@@ -46,13 +46,13 @@
 						<td>${donationlist.bKashAcc}</td>
 						<td>${donationlist.status}</td>
 						<td><c:if test="${donationlist.status}">
-								<a href="/statuschange/${donationlist.id}/false"
+								<a href="<c:url value='/statuschange/${donationlist.id}/false'/>"
 									class="btn btn-danger">Hide</a>
 							</c:if> <c:if test="${! donationlist.status}">
-								<a href="/statuschange/${donationlist.id}/true"
+								<a href="<c:url value='/statuschange/${donationlist.id}/true'/>"
 									class="btn btn-success">Show</a>
 							</c:if></td>
-						<td><a href="/deletedonation/${donationlist.id}"
+						<td><a href="<c:url value='/deletedonation/${donationlist.id}'/>"
 							class="btn btn-danger">Delete</a></td>
 					</tr>
 				</c:forEach>

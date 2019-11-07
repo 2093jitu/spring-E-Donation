@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp"></jsp:include>
 <section class="recent_event section_gap_custom">
 	<div class="container">
-	<div style="margin-top: 100px"></div>
-	<div class="row">
-		<div class="col-md-6">
-			<img  src="/img/donation/${donationdetails.img}" alt="" style="width: 100%;">
+		<div style="margin-top: 100px"></div>
+		<div class="row">
+			<div class="col-md-6">
+				<img src="<c:url value='/img/donation/${donationdetails.img}'/>"
+					alt="" style="width: 100%;">
+			</div>
+			<div class="col-md-6">
+				<img src="<c:url value='/img/donation/${donationdetails.document}'/>"
+					alt="" style="width: 100%;">
+			</div>
 		</div>
-		<div class="col-md-6">
-			<img  src="/img/donation/${donationdetails.document}" alt="" style="width: 100%;">
-		</div>
-	</div>
-	<div class="row" style="margin-top: 50px" >
+		<div class="row" style="margin-top: 50px">
 			<div class="col-md-12">
 				<h1 style="text-align: center;">
 					<b>Please Donate For Man Kind</b>
@@ -20,8 +23,8 @@
 				<hr style="border-top: 5px solid;"></hr>
 			</div>
 		</div>
-		<div class="row" style="margin-top: 50px">		
-			<table class="table table-bordered">				
+		<div class="row" style="margin-top: 50px">
+			<table class="table table-bordered">
 				<tr>
 					<th><h2>Full Name :</h2></th>
 					<td><h2>${donationdetails.fullName}</h2></td>
@@ -60,7 +63,8 @@
 				</tr>
 				<tr>
 					<th></th>
-					<td><a class="btn btn-success" href="/paymentPage">Donate Now</a></td>
+					<td><a class="btn btn-success"
+						href="<c:url value='/paymentPage'/>">Donate Now</a></td>
 				</tr>
 			</table>
 

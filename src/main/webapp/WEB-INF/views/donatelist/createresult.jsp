@@ -9,7 +9,7 @@
 			<div class="banner_content text-center">
 				<h2>Recent Events</h2>
 				<div class="page_link">
-					<a href="/">Home</a> <a href="contact.html">Events</a>
+					<a href="<c:url value='/'/>">Home</a> <a href="contact.html">Events</a>
 				</div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="row">
 			<c:if test="${! empty donationList}">
-				<a href="/createdonationlogin" class="btn btn-secondary" 
+				<a href="<c:url value='/createdonationlogin'/>" class="btn btn-secondary" 
 					>Back To Profile</a>
 				<table class="table table-bordered">
 					<tr>

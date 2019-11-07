@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <link rel="stylesheet"
@@ -26,8 +26,6 @@
 		</table>
 	</form> -->
 	<div style="margin-top: 300px"></div>
-
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -35,7 +33,7 @@
 				<div class="col-md-6">
 					<h1 style="text-align: center;">Login</h1>
 					<hr />
-					<form name='f' action="login" method='POST' style="margin-top: 75px">
+					<form name='f' action="<c:url value='login'/>" method='POST' style="margin-top: 75px">
 						<div class="form-group">
 							<label for="exampleInputEmail1">User Name</label> <input
 								type="text" class="form-control" id="exampleInputEmail1"
@@ -50,7 +48,6 @@
 
 						<button type="submit" class="btn btn-primary" name="submit">Submit</button>
 					</form>
-
 				</div>
 			</div>
 		</div>

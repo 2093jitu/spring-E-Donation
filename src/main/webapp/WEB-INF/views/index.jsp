@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
        <jsp:include page="header.jsp"></jsp:include>
 	<!--================Header Menu Area =================-->
 
@@ -10,7 +11,7 @@
 			<div class="container">
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
-						<img class="img-fluid" src="img/banner/text-img.png" alt="">
+						<img class="<curl value='img-fluid'/>" src="img/banner/text-img.png" alt="">
 						<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some
 							for as low as each.</p>
 						<a class="main_btn mr-10" href="#">donate now</a>
@@ -28,28 +29,28 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home1.png" alt="">
+					<img src="<c:url value='img/icons/home1.png'/>" alt="">
 					<h4>Total Donation</h4>
 					<p>
 						The French Revolutioncons tituted for the conscience of the dominant.
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home2.png" alt="">
+					<img src="<c:url value='img/icons/home2.png'/>" alt="">
 					<h4>Fund Raised</h4>
 					<p>
 						The French Revolutioncons tituted for the conscience of the dominant.
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home3.png" alt="">
+					<img src="<c:url value='img/icons/home3.png'/>" alt="">
 					<h4>Highest Donation</h4>
 					<p>
 						The French Revolutioncons tituted for the conscience of the dominant.
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home4.png" alt="">
+					<img src="<c:url value='img/icons/home4.png'/>" alt="">
 					<h4>Total Donation</h4>
 					<p>
 						The French Revolutioncons tituted for the conscience of the dominant.
@@ -78,7 +79,7 @@
 					<div class="card">
 						<div class="card-body">
 							<figure>
-								<img class="card-img-top img-fluid" src="img/donation/d1.jpg" alt="Card image cap">
+								<img class="card-img-top img-fluid" src="<c:url value='img/donation/d1.jpg'/>" alt="Card image cap">
 							</figure>
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">

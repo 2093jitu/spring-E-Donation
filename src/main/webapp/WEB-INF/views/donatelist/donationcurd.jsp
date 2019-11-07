@@ -78,7 +78,7 @@
 						<div class="card">
 							<div class="card-body">
 								<figure>
-									<img class="card-img-top img-fluid" src="../img/donation/${donationlist.img}"
+									<img class="card-img-top img-fluid" src="<c:url value='img/donation/${donationlist.img}'/>"
 										alt="Card image cap">
 								</figure>
 								<div class="progress">
@@ -93,7 +93,7 @@
 									</div>
 									<h4 class="card-title"><b>Full Name : </b>${donationlist.fullName}</h4>
 									<p class="card-text"><b style="color: black;">Problem  Description :  </b>${donationlist.description}</p>
-									<a href="/details/${donationlist.id}/" class="main_btn2">donate
+									<a href="<c:url value='/details/${donationlist.id}/'/>" class="main_btn2">donate
 										here</a>
 								</div>
 							</div>

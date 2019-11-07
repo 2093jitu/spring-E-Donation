@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<form class="form-inline my-2 my-lg-0" action="/teammemberbyname"
+			<form class="form-inline my-2 my-lg-0" action="<c:url value='/teammemberbyname'/>"
 				method="post">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Enter Full Name" aria-label="Search" name="fullName">
@@ -15,11 +15,11 @@
 			</form>
 		</div>
 		<div class="col-md-2">
-			<a href="/pdf" class="btn btn-outline-success my-2 my-sm-0">Show
-				All Report</a>
+			<a href="<c:url value='/pdf'/>"
+				class="btn btn-outline-success my-2 my-sm-0">Show All Report</a>
 		</div>
 	</div>
-	
+
 	<div class="row" style="margin-top: 10px">
 		<div class="col-md-12">
 			<table class="table table-bordered">
@@ -48,12 +48,15 @@
 						<td>${mamber.qus}</td>
 						<td>${mamber.status}</td>
 						<td><c:if test="${mamber.status=='Request Pending'}">
-								<a href="/removeorcancalteammember/${mamber.id}"
+								<a
+									href="<c:url value='/removeorcancalteammember/${mamber.id}'/>"
 									class="btn btn-danger">Cancel Request</a>
-								<a href="/addteammember/Team Member/${mamber.id}"
+								<a
+									href="<c:url value='/addteammember/Team Member/${mamber.id}'/>"
 									class="btn btn-success">Add As Team Member</a>
 							</c:if> <c:if test="${mamber.status=='Team Member'}">
-								<a href="/removeorcancalteammember/${mamber.id}"
+								<a
+									href="<c:url value='/removeorcancalteammember/${mamber.id}'/>"
 									class="btn btn-warning">Remove From Team</a>
 							</c:if></td>
 					</tr>

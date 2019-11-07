@@ -9,7 +9,7 @@
 			<div class="banner_content text-center">
 				<h2>Recent Events</h2>
 				<div class="page_link">
-					<a href="/">Home</a> <a href="contact.html">Events</a>
+					<a href="#">Home</a> <a href="contact.html">Events</a>
 				</div>
 			</div>
 		</div>
@@ -51,10 +51,11 @@
 									<P style="color: red;">PENDING</P>
 								</c:if> <c:if test="${donationlist.status}">
 									<P style="color: green;">ACCEPTED BY ADMIN</P>
-								</c:if></td>
+								</c:if>
+							</td>
 							<td><c:if test="${! donationlist.status}">
 									<td><a
-										href="/deletedonationbyuser/${donationlist.id}/${donationlist.email}"
+										href="<c:url value='/deletedonationbyuser/${donationlist.id}/${donationlist.email}'/>"
 										class="btn btn-danger">Cancel</a></td>
 								</c:if></td>
 						</tr>
@@ -96,7 +97,7 @@
 				</div>
 				<div class="modal-body">
 
-					<form method="post" action="/createdonation"
+					<form method="post" action="<c:url value='/createdonation'/>"
 						enctype="multipart/form-data">
 						
 						<div class="form-group">

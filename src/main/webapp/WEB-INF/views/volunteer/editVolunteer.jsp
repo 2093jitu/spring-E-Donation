@@ -12,7 +12,7 @@
 							<b>Edit Volunteer</b>
 						</h2>
 					</div>
-			<form action="/updateVolunteer" method="post">
+			<form action="<c:url value='/updateVolunteer'/>" method="post">
 				<div class="row">					
 					<div class="col">
 						<label for="name">Full Name</label> <input type="text"

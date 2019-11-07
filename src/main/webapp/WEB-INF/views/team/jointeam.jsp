@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-">
-				<form action="fileUploadAir.htm" method="POST"
+				<form action="<c:url value='fileUploadAir.htm'/>" method="POST"
 					enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="pic">Picture</label> <input type="file" id="pic"
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px; margin-left: -4px">
-			<form action="/join" method="post">
+			<form action="<c:url value='/join'/>" method="post">
 				<div class="row wls-contact-mid">
 					<div class="col-md-12 col-sm-12 form-group contact-forms">
 						<input type="text" class="form-control"
@@ -81,7 +81,7 @@
 				<div class="card mb-3" style="max-width: 540px; margin: 10px;">
 					<div class="row no-gutters">
 						<div class="col-md-4">
-							<img src="../img/teammemberpic/${mamber.profilepic}" class="card-img" alt="..." width="100%">
+							<img src="<c:url value='img/teammemberpic/${mamber.profilepic}'/>" class="card-img" alt="..." width="100%">
 						</div>
 						<div class="col-md-8">
 							<div class="card-body">
